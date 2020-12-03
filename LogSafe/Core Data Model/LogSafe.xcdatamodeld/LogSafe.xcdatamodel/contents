@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17189" systemVersion="19G73" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Barcode" representedClassName=".Entity" syncable="YES">
+        <attribute name="barcode" optional="YES" attributeType="Binary"/>
+        <attribute name="dateTime" optional="YES" attributeType="String"/>
+        <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="barcode" inverseEntity="Employee"/>
+    </entity>
+    <entity name="Employee" representedClassName=".Employee" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="isAdmin" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <relationship name="barcode" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Barcode" inverseName="employee" inverseEntity="Barcode"/>
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="employee" inverseEntity="Photo"/>
+    </entity>
+    <entity name="Photo" representedClassName=".Photo" syncable="YES">
+        <attribute name="dateTime" optional="YES" attributeType="String"/>
+        <attribute name="userPhoto" optional="YES" attributeType="Binary"/>
+        <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="photo" inverseEntity="Employee"/>
+    </entity>
+    <entity name="Visitor" representedClassName=".Visitor" syncable="YES">
+        <attribute name="dateTime" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee"/>
+    </entity>
+    <elements>
+        <element name="Barcode" positionX="-18" positionY="45" width="128" height="88"/>
+        <element name="Employee" positionX="-54" positionY="-9" width="128" height="148"/>
+        <element name="Photo" positionX="-36" positionY="18" width="128" height="88"/>
+        <element name="Visitor" positionX="0" positionY="90" width="128" height="88"/>
+    </elements>
+</model>
